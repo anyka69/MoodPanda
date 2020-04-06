@@ -16,18 +16,17 @@ public class MoodModal {
     public MoodModal updateDetails(int moodRating,String description, String date){
             $("#TextBoxUpdateMoodTag").sendKeys(description);
             if(moodRating>5){
-            for (int i=0; i<moodRating-5;i++){
+            for (int i=0; i<moodRating-5;i++) {
                 $(".ui-slider-handle ").click();
-                $(".ui-slider-handle ").sendKeys(Keys.ARROW_LEFT);
-        }if (moodRating<5){
-                for (int i=0; i<moodRating+5;i++){
-                    $(".ui-slider-handle ").click();
-                    $(".ui-slider-handle ").sendKeys(Keys.ARROW_RIGHT);}
-        }else{
+                $(".ui-slider-handle ").sendKeys(Keys.ARROW_RIGHT);
             }
+            }else{
+                for (int i=0; i<5-moodRating;i++){
+                    $(".ui-slider-handle ").click();
+                    $(".ui-slider-handle ").sendKeys(Keys.ARROW_LEFT);}
         }
         return this;
-    }
+        }
     public MoodModal clickUpdateMood(){
         $(UPDATE_BUTTON_CSS).click();
         return this;
